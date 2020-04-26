@@ -1,0 +1,6 @@
+﻿  DT.cpp
+D:\Pro\1Lab\1Lab\DT.cpp(16,25): warning C4018: <: несоответствие типов со знаком и без знака
+  Date.cpp
+D:\Pro\Lab3_2020\Lab3_2020\Date.cpp(2,10): fatal error C1083: Не удается открыть файл включение: DT.h: No such file or directory,
+  Lab3_2020.cpp
+  Создание кода...
