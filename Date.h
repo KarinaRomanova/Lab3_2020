@@ -28,7 +28,6 @@ public:
 	void GetWeekday() override;
 	bool IsWeekend() override;
 	int GetDaysCount() override;
-	void SetNewDate();
 
 };
 
@@ -41,7 +40,6 @@ class JulianCalendar :public Calendar
 public:
 
 	JulianCalendar(int day_, int month_, int year_);
-	~JulianCalendar() {};
 	void GetWeekday() override;
 	bool IsWeekend() override;
 	int GetDaysCount();	

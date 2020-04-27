@@ -142,17 +142,6 @@ void JulianCalendar::GetWeekday()
 		break;
 	}
 }
-bool JulianCalendar::IsWeekend()
-{
-	if (dayResult == 6 || dayResult == 5 || (day == 31 && month == 12) || (day == 8 && month == 3) || (day == 23 && month == 2) || (day == 9 && month == 5) || (day == 1 && month == 5))
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
 int JulianCalendar::GetDaysCount()
 {
 	{
@@ -181,14 +170,19 @@ int JulianCalendar::GetDaysCount()
 		}
 	}
 }
-
-void GregorianCalendar::SetNewDate() 
+bool JulianCalendar::IsWeekend()
 {
-	cout << "Введите дату\n";
-	cout << "Год\n";	cin >> year;
-	cout << "Месяц\n";  cin >> month;
-	cout << "День\n";	cin >> day;
-
+	if (dayResult == 6 || dayResult == 5 || (day == 31 && month == 12) || (day == 8 && month == 3) || (day == 23 && month == 2) || (day == 9 && month == 5) || (day == 1 && month == 5))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
+
+
+
 
 
