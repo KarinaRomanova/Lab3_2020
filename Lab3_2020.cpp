@@ -15,7 +15,7 @@ int main()
 
 	while (k == 0) 
 	{
-		cout << "Âûáåðèòå òèï êàëåíäàðÿ:\n1. Ãðèãîðèàíñêèé\n2. Þëèàíñêèé\n";  cin >> type;
+		cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ ÐºÐ°Ð»ÐµÐ½Ð´Ð°Ñ€Ñ:\n1. Ð“Ñ€Ð¸Ð³Ð¾Ñ€Ð¸Ð°Ð½ÑÐºÐ¸Ð¹\n2. Ð®Ð»Ð¸Ð°Ð½ÑÐºÐ¸Ð¹\n";  cin >> type;
 		if (type == 1)
 		{
 			while (k == 0) {
@@ -23,10 +23,11 @@ int main()
 				GregorianCalendar gregorianCalendar(day, month, year);
 				gregorianCalendar.GetWeekday();
 				if (gregorianCalendar.IsWeekend())
-					cout << "Âûõîäíîé\n";
+					cout << "Ð’Ñ‹Ñ…Ð¾Ð´Ð½Ð¾Ð¹\n";
 
 				k++;
-				cout << "Ââåäèòå 0 äëÿ íîâîé äàòû\n"; cin >> k;
+				
+				cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ 0 Ð´Ð»Ñ Ð½Ð¾Ð²Ð¾Ð¹ Ð´Ð°Ñ‚Ñ‹\n"; cin >> k;
 			
 			}
 		}
@@ -40,15 +41,15 @@ int main()
 					JulianCalendar julianCalendar(day, month, year);
 					julianCalendar.GetWeekday();
 					if (julianCalendar.IsWeekend())
-						cout << "Âûõîäíîé\n";
+					cout << "Ð’Ñ‹Ñ…Ð¾Ð´Ð½Ð¾Ð¹\n";
 
 					k++;
-					cout << "Ââåäèòå 0 äëÿ íîâîé äàòû\n"; cin >> k;
+					cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ 0 Ð´Ð»Ñ Ð½Ð¾Ð²Ð¾Ð¹ Ð´Ð°Ñ‚Ñ‹\n"; cin >> k;
 				}
 			}	
 		
 			else 
-				cout << "Âûáåðèòå êîððåêòíûé òèï!\n"; k = 0;
+					cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ ÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ Ñ‚Ð¸Ð¿!\n"; k = 0;
 		}
 	}
 return 0;
@@ -56,8 +57,8 @@ return 0;
 void InputDate(int &day, int &month, int &year)
 
 {
-	cout << "Ââåäèòå äàòó\n";
-	cout << "Ãîä\n";	cin >> year;
-	cout << "Ìåñÿö\n";  cin >> month;
-	cout << "Äåíü\n";	cin >> day;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð°Ñ‚Ñƒ\n";
+	cout << "Ð“Ð¾Ð´\n";	cin >> year;
+	cout << "ÐœÐµÑÑÑ†\n";  cin >> month;
+	cout << "Ð”ÐµÐ½ÑŒ\n";	cin >> day;
 }
