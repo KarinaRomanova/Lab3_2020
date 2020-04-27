@@ -1,36 +1,52 @@
 #include "Date.h"
 #include "DT.h"
+using namespace std;
 
-void Calendar::GetDayResult()
+
+GregorianCalendar::GregorianCalendar(int day_, int month_, int year_)
+	: day(day_), month(month_), year(year_) 
 {
+	DateTime dt;
+	bool isDateCorrect = dt.checkDate(year, month, day);
+	if (!isDateCorrect) {
+		cout << "Дата не верна!" << endl;
+		exit(1);
+	}
+}
+void  GregorianCalendar::GetWeekday()
+{
+	a = (14 - month) / 12;
+	yearcalc = year - a;
+	monthcalc = month + (12 * a) - 2;
+	dayResult = (day + (31 * monthcalc) / 12 + yearcalc + yearcalc / 4 - yearcalc / 100 + yearcalc / 400) % 7;
 	string dayString;
 	switch (dayResult) {
 	case 0:
-		dayString = "Sunday";
+		dayString = "Воскресенье";
 		cout << dayString << endl;
 		break;
 	case 1:
-		dayString = "Monday";
+		dayString = "Понедельник";
 		cout << dayString << endl;
 		break;
 	case 2:
-		dayString = "Tuesday";
+		dayString = "Вторник";
 		cout << dayString << endl;
 		break;
 	case 3:
-		dayString = "Wednesday";
+		dayString = "Среда";
 		cout << dayString << endl;
 		break;
 	case 4:
-		dayString = "Thursday";
+		dayString = "Четверг";
 		cout << dayString << endl;
 		break;
 	case 5:
-		dayString = "Friday";
+		dayString = "Пятница";
 		cout << dayString << endl;
 		break;
 	case 6:
-		dayString = "Saturday";
+		dayString = "Суббота";
 		cout << dayString << endl;
 		break;
 	default:
@@ -38,24 +54,132 @@ void Calendar::GetDayResult()
 		break;
 	}
 }
-//GetWeekDay(DateTime dt) : WeekDay, определяющую день недели по заданной дате;
-//IsWeekend(DateTime dt) : boolean, определяющую является ли заданная дата выходным днем по календарю(учесть несколько праздников);
-//GetDaysCount
-//
-//Date::Date(int date_day, int date_month, int date_year)
-//	:day(date_day), month(date_month), year(date_year)
-//{
-//	DateTime dt;
-//	bool isDateCorrect = dt.checkDate(year, month, day);
-//	if (!isDateCorrect) {
-//		cout << "Дата не верна!" << endl;
-//		exit(1);
-//	}
-//	int a;
-//	int yearcalc;
-//	int monthcalc;
-//	a = (14 - month) / 12;
-//	yearcalc = year - a;
-//	monthcalc = month + (12 * a) - 2;
-//	dayResult = (day + (31 * monthcalc) / 12 + yearcalc + yearcalc / 4 - yearcalc / 100 + yearcalc / 400) % 7;
-//}
+int GregorianCalendar::GetDaysCount()
+{
+	{
+		switch (month) {
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			return 31;
+			break;
+		case 2:
+			if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+				return 29;
+			else
+				return 28;
+			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			return 30;
+			break;
+		}
+	}
+}
+bool GregorianCalendar::IsWeekend()
+{
+	if (dayResult == 6 || dayResult == 0 || (day == 31 && month == 12) || (day == 8 && month == 3) || (day == 23 && month == 2) || (day == 9 && month == 5) || (day == 1 && month == 5))
+		return true;
+	else
+		return false;
+}
+
+JulianCalendar::JulianCalendar(int day__, int month__, int year__)
+	: day(day__), month(month__), year(year__)
+{
+	DateTime dt;
+	bool isDateCorrect = dt.checkDate(year, month, day);
+	if (!isDateCorrect) {
+		cout << "Дата не верна!" << endl;
+		exit(1);
+	}
+}
+void JulianCalendar::GetWeekday()
+{
+	a = (14 - month) / 12;
+	yearcalc = year - a + 4800;
+	monthcalc = month + (12 * a) - 3;
+	dayResult = (day + 153*monthcalc + 2/5 + 365*yearcalc + yearcalc/4 - 32083)%7;
+	string dayString;
+
+	switch (dayResult) {
+	case 6:
+		dayString = "Воскресенье";
+		cout << dayString << endl;
+		break;
+	case 0:
+		dayString = "Понедельник";
+		cout << dayString << endl;
+		break;
+	case 1:
+		dayString = "Вторник";
+		cout << dayString << endl;
+		break;
+	case 2:
+		dayString = "Среда";
+		cout << dayString << endl;
+		break;
+	case 3:
+		dayString = "Четверг";
+		cout << dayString << endl;
+		break;
+	case 4:
+		dayString = "Пятница";
+		cout << dayString << endl;
+		break;
+	case 5:
+		dayString = "Суббота";
+		cout << dayString << endl;
+		break;
+	default:
+		cout << "Error";
+		break;
+	}
+}
+bool JulianCalendar::IsWeekend()
+{
+	if (dayResult == 6 || dayResult == 5 || (day == 31 && month == 12) || (day == 8 && month == 3) || (day == 23 && month == 2) || (day == 9 && month == 5) || (day == 1 && month == 5))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+int JulianCalendar::GetDaysCount()
+{
+	{
+		switch (month) {
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			return 31;
+			break;
+		case 2:
+			if (year % 4 == 0)
+				return 29;
+			else
+				return 28;
+			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+			return 30;
+			break;
+		}
+	}
+}
+
+
