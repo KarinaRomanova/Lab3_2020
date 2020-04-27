@@ -9,7 +9,7 @@ GregorianCalendar::GregorianCalendar(int day_, int month_, int year_)
 	DateTime dt;
 	bool isDateCorrect = dt.checkDate(year, month, day);
 	if (!isDateCorrect) {
-		cout << "Äàòà íå âåðíà!" << endl;
+		cout << "Ð”Ð°Ñ‚Ð° Ð½Ðµ Ð²ÐµÑ€Ð½Ð°!" << endl;
 		exit(1);
 	}
 }
@@ -22,31 +22,31 @@ void  GregorianCalendar::GetWeekday()
 	string dayString;
 	switch (dayResult) {
 	case 0:
-		dayString = "Âîñêðåñåíüå";
+		dayString = "Ð’Ð¾ÑÐºÑ€ÐµÑÐµÐ½ÑŒÐµ";
 		cout << dayString << endl;
 		break;
 	case 1:
-		dayString = "Ïîíåäåëüíèê";
+		dayString = "ÐŸÐ¾Ð½ÐµÐ´ÐµÐ»ÑŒÐ½Ð¸Ðº";
 		cout << dayString << endl;
 		break;
 	case 2:
-		dayString = "Âòîðíèê";
+		dayString = "Ð’Ñ‚Ð¾Ñ€Ð½Ð¸Ðº";
 		cout << dayString << endl;
 		break;
 	case 3:
-		dayString = "Ñðåäà";
+		dayString = "Ð¡Ñ€ÐµÐ´Ð°";
 		cout << dayString << endl;
 		break;
 	case 4:
-		dayString = "×åòâåðã";
+		dayString = "Ð§ÐµÑ‚Ð²ÐµÑ€Ð³";
 		cout << dayString << endl;
 		break;
 	case 5:
-		dayString = "Ïÿòíèöà";
+		dayString = "ÐŸÑÑ‚Ð½Ð¸Ñ†Ð°";
 		cout << dayString << endl;
 		break;
 	case 6:
-		dayString = "Ñóááîòà";
+		dayString = "Ð¡ÑƒÐ±Ð±Ð¾Ñ‚Ð°";
 		cout << dayString << endl;
 		break;
 	default:
@@ -96,7 +96,7 @@ JulianCalendar::JulianCalendar(int day_, int month_, int year_)
 	DateTime dt;
 	bool isDateCorrect = dt.checkDate(year, month, day);
 	if (!isDateCorrect) {
-		cout << "Äàòà íå âåðíà!" << endl;
+		cout << "Ð”Ð°Ñ‚Ð° Ð½Ðµ Ð²ÐµÑ€Ð½Ð°!" << endl;
 		exit(1);
 	}
 }
@@ -110,31 +110,31 @@ void JulianCalendar::GetWeekday()
 
 	switch (dayResult) {
 	case 6:
-		dayString = "Âîñêðåñåíüå";
+		dayString = "Ð’Ð¾ÑÐºÑ€ÐµÑÐµÐ½ÑŒÐµ";
 		cout << dayString << endl;
 		break;
 	case 0:
-		dayString = "Ïîíåäåëüíèê";
+		dayString = "ÐŸÐ¾Ð½ÐµÐ´ÐµÐ»ÑŒÐ½Ð¸Ðº";
 		cout << dayString << endl;
 		break;
 	case 1:
-		dayString = "Âòîðíèê";
+		dayString = "Ð’Ñ‚Ð¾Ñ€Ð½Ð¸Ðº";
 		cout << dayString << endl;
 		break;
 	case 2:
-		dayString = "Ñðåäà";
+		dayString = "Ð¡Ñ€ÐµÐ´Ð°";
 		cout << dayString << endl;
 		break;
 	case 3:
-		dayString = "×åòâåðã";
+		dayString = "Ð§ÐµÑ‚Ð²ÐµÑ€Ð³";
 		cout << dayString << endl;
 		break;
 	case 4:
-		dayString = "Ïÿòíèöà";
+		dayString = "ÐŸÑÑ‚Ð½Ð¸Ñ†Ð°";
 		cout << dayString << endl;
 		break;
 	case 5:
-		dayString = "Ñóááîòà";
+		dayString = "Ð¡ÑƒÐ±Ð±Ð¾Ñ‚Ð°";
 		cout << dayString << endl;
 		break;
 	default:
