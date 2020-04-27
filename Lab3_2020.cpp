@@ -2,7 +2,7 @@
 #include "Date.h"
 using namespace std;
 
-
+void InputDate(int &day, int &month, int &year);
 
 int main()
 {
@@ -11,45 +11,53 @@ int main()
 	int day;
 	int month;
 	int year;
-	cout << "Введите дату\n";
-	cout << "Год\n";	cin >> year;
-	cout << "Месяц\n";  cin >> month;
-	cout << "День\n";	cin >> day;
-	int k = 0;	
-	GregorianCalendar gregorianCalendar(day, month, year);
-	JulianCalendar julianCalendar(day, month, year);
-	while (k == 0) {
-	
+	int k = 0;
+
+	while (k == 0) 
+	{
 		cout << "Выберите тип календаря:\n1. Григорианский\n2. Юлианский\n";  cin >> type;
 		if (type == 1)
 		{
-			gregorianCalendar.GetWeekday();
-			if (gregorianCalendar.IsWeekend())
-			{
-				cout << "Выходной\n";
+			while (k == 0) {
+				InputDate(day, month, year);
+				GregorianCalendar gregorianCalendar(day, month, year);
+				gregorianCalendar.GetWeekday();
+				if (gregorianCalendar.IsWeekend())
+					cout << "Выходной\n";
+
+				k++;
+				cout << "Введите 0 для новой даты\n"; cin >> k;
+			
 			}
-			k++;
-			cout << "Введите 0 для новой даты\n"; cin >> k;
 		}
 
 		else
 		{
 			if (type == 2)
 			{
-				julianCalendar.GetWeekday();
-				if (julianCalendar.IsWeekend())
-				{
-					cout << "Выходной\n";
+				while (k == 0) {
+					InputDate(day, month, year);
+					JulianCalendar julianCalendar(day, month, year);
+					julianCalendar.GetWeekday();
+					if (julianCalendar.IsWeekend())
+						cout << "Выходной\n";
+
+					k++;
+					cout << "Введите 0 для новой даты\n"; cin >> k;
 				}
-				k++;
-				cout << "Введите 0 для новой даты\n"; cin >> k;
-			}
-			else {
-				cout << "Выберите корректный тип!\n";
-			}
-
-
-			return 0;
+			}	
+		
+			else 
+				cout << "Выберите корректный тип!\n"; k = 0;
 		}
 	}
+return 0;
+}
+void InputDate(int &day, int &month, int &year)
+
+{
+	cout << "Введите дату\n";
+	cout << "Год\n";	cin >> year;
+	cout << "Месяц\n";  cin >> month;
+	cout << "День\n";	cin >> day;
 }

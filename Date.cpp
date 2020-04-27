@@ -90,8 +90,8 @@ bool GregorianCalendar::IsWeekend()
 		return false;
 }
 
-JulianCalendar::JulianCalendar(int day__, int month__, int year__)
-	: day(day__), month(month__), year(year__)
+JulianCalendar::JulianCalendar(int day_, int month_, int year_)
+	: day(day_), month(month_), year(year_)
 {
 	DateTime dt;
 	bool isDateCorrect = dt.checkDate(year, month, day);
@@ -180,6 +180,15 @@ int JulianCalendar::GetDaysCount()
 			break;
 		}
 	}
+}
+
+void GregorianCalendar::SetNewDate() 
+{
+	cout << "Введите дату\n";
+	cout << "Год\n";	cin >> year;
+	cout << "Месяц\n";  cin >> month;
+	cout << "День\n";	cin >> day;
+
 }
 
 
